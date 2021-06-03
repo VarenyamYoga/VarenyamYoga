@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<style media="screen">
+  *{
+    color:#745959;
+  }
+</style>
+    <div class="mt-5">
+    </div>
+    <div class="container">
+        {% if Assessment %}
+                <table class="table">
+                    <thead class="thead" style="background-color: #a3d5ff;">
+                        <tr>
+                        <th scope="col">Exam Name</th>
+                        <th scope="col">Exam Professor</th>
+                        <th scope="col">Attendance</th>
+                        </tr>
+                    </thead>
+                {% for Assessment in Assessment %}
+                        <tbody>
+                            <tr>
+                            <td>{{Assessment.name}}</td>
+                            <td>{{Assessment.Trainer}}</td>
+                            <td>Not Attended</tr>
+                        </tbody>
+                {% endfor %}
+                </table>
+        {% endif %}
+    </div>
+    <div class="container">
+        {% if completed %}
+                <table class="table">
+                    <thead class="thead" style="background-color: #87ff9b">
+                        <tr>
+                        <th scope="col">Exam Name</th>
+                        <th scope="col">Exam Professor</th>
+                        <th scope="col">Attendance</th>
+                        </tr>
+                    </thead>
+            {% for Assessment in completed %}
+                    <tbody>
+                        <tr>
+                        <td>{{Assessment.name}}</td>
+                        <td>{{Assessment.Trainer}}</td>
+                        <td>
+                            Attended
+                        </tr>
+                    </tbody>
+                <input type="hidden" value="{{ Assessment }}" name="paper">
+            {% endfor %}
+            </table>
+        {% endif %}
+    </div>
+
+{% endblock %}

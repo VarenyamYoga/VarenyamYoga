@@ -1,0 +1,84 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+</head>
+  <body>
+    <style>
+      *{
+        color: #745959;
+      }
+      .main{
+        padding-left:3%;
+        display: grid;
+        grid-template-columns: 45% auto;
+      }
+      button{
+        margin:1em;
+        margin-left:5em;
+      }
+      img{
+        height:35em;
+        width:45em;
+        transition:all 0.5s ease;
+      }
+      img:hover{
+        height:40em;
+        width:50em;
+        transition:all 0.5s ease;
+      }
+      .prof button[type=submit]:hover{
+        background: #87ff9b;
+      }
+      .student button[type=submit]:hover{
+        background: #a3d5ff;
+     }
+    </style>
+      <nav class="navbar navbar-light" style="background-color:#eb7563">
+        <a class="navbar-brand"  style="color: white; padding-left: 5em;">
+          Welcome!
+        </a>
+      </nav>
+      <div class="main">
+        <div class="abt">
+          <br><br>
+          <h1>Welcome to Varenyam Virtual Asessment</h1>
+          <h3>The soul of Varenyam</h3>
+          <br>
+          <h5>“The human body has been designed to resist an infinite number of changes and attacks brought about by its environment. The secret of good health lies in successful adjustment to changing stresses on the body.”  </h5>
+          <br>
+          <h5>“To keep the body in good health is a duty…otherwise we shall not be able to keep the mind strong and clear.”</h5>
+          <br><br>
+          <div class="Trainer">
+            <h2>Corporate Section: </h2>
+            <div class="row">
+              <form method="get" action="{% url 'Corporate-login' %}">
+                  <button type="submit" class="btn btn-raised btn-lg" style="color: #745959">Login</button>
+              </form>
+              <form method="get" action="{% url 'Corporate-register' %}">
+                  <button type="submit" class="btn btn-raised btn-lg" style="color: #745959">Signup</button>
+              </form>
+            </div>
+          </div>
+          <br><br>
+          <div class="Client">
+            <h2>User Section: </h2>
+            <div class="row">
+              <form method="get" action="{% url 'login' %}">
+                  <button type="submit" class="btn btn-raised btn-lg" style="color: #745959">Login</button>
+              </form>
+              <form method="get" action="{% url 'register' %}">
+                  <button type="submit" class="btn btn-raised btn-lg" style="color: #745959">Signup</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="img">
+          <img src="{% static 'img/about.jpg' %}" alt="">
+        </div>
+    </div>
+  </body>
+</html>
