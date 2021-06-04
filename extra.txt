@@ -17,3 +17,5 @@ pip install django[argon2]
 pipenv shell
 pipenv install
 }
+
+git push heroku HEAD:master
