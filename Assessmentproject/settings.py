@@ -29,7 +29,7 @@ SECRET_KEY = '*b!!yzggw6h58&ov0ah@jk1z!i7chzg!zqh*r)af+3q%cgk*h@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://varenyam-virtual-assessment.herokuapp.com']
 
 
 # Application definition
