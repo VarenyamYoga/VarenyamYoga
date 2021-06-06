@@ -95,7 +95,7 @@ DATABASES = {
         'ENGINE': 'djongo',
         'NAME': 'Assessment',
         'CLIENT': {
-           'host': 'mongodb+srv://Abhay1234:Abhay1234@cluster0.yptr4.mongodb.net/Assessment?retryWrites=true&w=majority',
+           'host': 'mongodb+srv://Abhay12345:Abhay12345@cluster0.xsxk9.mongodb.net/Assessment?retryWrites=true&w=majority',
            #'host': 'mongodb+srv://varenyamvirtualassessme.yptr4.mongodb.net/Assessment?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority',
         }
     }
