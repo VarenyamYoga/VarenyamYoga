@@ -33,6 +33,8 @@ DEBUG = False
 ALLOWED_HOSTS = ['https://varenyam-virtual-assessment.herokuapp.com']
 
 
+DEFAULT_FROM_EMAIL = 'varenyamanalytics@gmail.com'
+
 # Application definition
 
 INSTALLED_APPS = [
