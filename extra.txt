@@ -19,3 +19,4 @@ pipenv install
 }
 
 git push heroku HEAD:master
+heroku git:remote -a mydomainname

@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 import pymongo
-import django_heroku
 import os
+import django_heroku
 from pathlib import Path
 from django.contrib import messages
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +28,7 @@ MEDIA_DIR = os.path.join(BASE_DIR,'media')
 SECRET_KEY = '*b!!yzggw6h58&ov0ah@jk1z!i7chzg!zqh*r)af+3q%cgk*h@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://varenyam-virtual-assessment.herokuapp.com']
 
@@ -164,4 +164,8 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
+
+# Activate Django-Heroku.
 django_heroku.settings(locals())
