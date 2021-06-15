@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 import pymongo
 import os
-import django_heroku
 from pathlib import Path
 from django.contrib import messages
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,10 +29,8 @@ SECRET_KEY = '*b!!yzggw6h58&ov0ah@jk1z!i7chzg!zqh*r)af+3q%cgk*h@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://varenyam-virtual-assessment.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','LocalHost','varenyam.pythonanywhere.com']
 
-
-DEFAULT_FROM_EMAIL = 'varenyamanalytics@gmail.com'
 
 # Application definition
 
@@ -52,7 +49,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -85,7 +81,7 @@ WSGI_APPLICATION = 'Assessmentproject.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-'''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -98,12 +94,12 @@ DATABASES = {
         'ENGINE': 'djongo',
         'NAME': 'Assessment',
         'CLIENT': {
-           'host': 'mongodb+srv://Abhay12345:Abhay12345@cluster0.xsxk9.mongodb.net/Assessment?retryWrites=true&w=majority',
+           'host': 'mongodb+srv://Abhay1234:Abhay1234@cluster0.yptr4.mongodb.net/Assessment?retryWrites=true&w=majority'    ,
            #'host': 'mongodb+srv://varenyamvirtualassessme.yptr4.mongodb.net/Assessment?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority',
         }
     }
 }
-
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -144,7 +140,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'examProject/static')
+    os.path.join(BASE_DIR,'/static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
@@ -154,7 +150,7 @@ MESSAGE_TAGS = {
 
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
-
+'''
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = os.environ.get('EMAIL_HOST')
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
@@ -162,12 +158,10 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 EMAIL_PORT = 587
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+'''
 
-
-#  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'varenyamanalytics@gmail.com'
+EMAIL_HOST_PASSWORD = 'Sugam@12345'

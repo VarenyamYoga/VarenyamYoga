@@ -44,7 +44,7 @@ class Register(View):
             activate_url = 'http://' + domain +link
             email_subject = 'Activate your Varenyam Virtual Assessment Portal account'
             email_body = 'Hi.Please use this link to verify your account\n' + activate_url + ".\n\n You are receiving this message because you registered on " + domain +". If you didn't register please contact support team on " + domain 
-            fromEmail = 'noreply@exam.com'
+            fromEmail = 'Varenyamanalytics@gmail.com'
             email = EmailMessage(
 				email_subject,
 				email_body,

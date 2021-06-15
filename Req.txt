@@ -1,0 +1,18 @@
+Requirement - 
+1.Pip Install djongo
+2.pip install django-email
+3.pip3 install thread6
+4.pip install django
+5.pip install six
+6.pip install Validate_email
+7.pip install pillow
+8.pip install pymongo[srv]
+9.pip install certifi
+10.pip install certificates
+pip install django-smtp-ssl
+}
+pip install pipenv
+pip install django[argon2]
+pipenv shell
+pipenv install
+}

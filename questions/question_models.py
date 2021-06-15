@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django import forms
 
 class Question_DB(models.Model):
-    professor = models.ForeignKey(User, limit_choices_to={'groups__name': "Trainer"}, on_delete=models.CASCADE, null=True)
+    Trainer = models.ForeignKey(User, limit_choices_to={'groups__name': "Trainer"}, on_delete=models.CASCADE, null=True)
     qno = models.AutoField(primary_key=True)
     question = models.CharField(max_length=100)
     optionA = models.CharField(max_length=100)

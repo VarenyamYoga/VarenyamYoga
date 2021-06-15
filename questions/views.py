@@ -110,7 +110,7 @@ def Client_view_previous(request):
         else:
             list_un.append(Assessment)
 
-    return render(request,'Assessment/previousstudent.html',{
+    return render(request,'Assessment/previousClient.html',{
         'Assessment':list_un,
         'completed':list_of_completed
     })
@@ -136,7 +136,7 @@ def view_Client_Trainer(request):
     for x in Client_name:
         dicts[x] = Client_completed[i]
         i+=1
-    return render(request, 'Assessment/viewstudents.html', {
+    return render(request, 'Assessment/viewClient.html', {
         'Client':dicts
     })
 
@@ -153,7 +153,7 @@ def view_results_Trainer(request):
             for Client in Client_filter:
                 key = str(Client.Client) + " " + str(Client.Assessmentname) + " " + str(Client.qpaper.qPaperTitle)
                 dicts[key] = Client.score
-    return render(request, 'Assessment/resultsstudent.html', {
+    return render(request, 'Assessment/resultsClient.html', {
         'Client':dicts
     })
 
@@ -169,7 +169,7 @@ def view_Assessment_Client(request):
         else:
             list_un.append(Assessment)
 
-    return render(request,'Assessment/mainexamstudent.html',{
+    return render(request,'Assessment/mainexamClient.html',{
         'Assessment':list_un,
         'completed':list_of_completed
     })

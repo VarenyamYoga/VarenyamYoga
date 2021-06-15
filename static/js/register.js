@@ -25,7 +25,7 @@ usernamefield.addEventListener('keyup',(e)=>{
 	let headers = new Headers();
 	if(usernameValue.length>0){
 		usernamevalidOut.textContent = `Checking Username ${usernameValue}`;
-		fetch('/student/username-validate',{
+		fetch('/Client/username-validate',{
 			body: JSON.stringify({username:usernameValue}),
 			method:"POST",
 			credentials: "same-origin",
@@ -53,7 +53,7 @@ emailfield.addEventListener('keyup',(e)=>{
 	emailfeedBack.style.display = 'none';
 	let headers = new Headers();
 	if(emailVal.length>0){
-		fetch('/student/email-validate',{
+		fetch('/Client/email-validate',{
 			body: JSON.stringify({ email: emailVal}),
 			method:"POST",
 			credentials: "same-origin",

@@ -33,11 +33,11 @@ class EmailValidationView(View):
 		return JsonResponse({'email_valid':True})
 
 class Cheating(View):
-	def get(self,request,professorname):
-		student = str(request.user.username)
-		email = User.objects.get(username=professorname).email
-		email_subject = 'Student Cheating'
-		email_body = 'Student caught changing window for 5 times. Student username is :' + student
+	def get(self,request,Trainername):
+		Client = str(request.user.username)
+		email = User.objects.get(username=Trainername).email
+		email_subject = 'Client Cheating'
+		email_body = 'Client caught changing window for 5 times. Cient username is :' + Client
 		fromEmail = 'noreply@exam.com'
 		email_obj = EmailMessage(
 		    email_subject,

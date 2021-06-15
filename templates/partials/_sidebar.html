@@ -128,11 +128,11 @@
     <li><i class="fas fa-clipboard-list"></i>  Summary</li>
     <ul>
       <li><a href="{% url 'view_Client_attendance' %}">Attendance</a></li>
-      <li><a href="{% url 'student-previous' %}">Results and Previous Assessment</a></li>
+      <li><a href="{% url 'Client-previous' %}">Results and Previous Assessment</a></li>
     </ul>
     <li><i class="fas fa-sliders-h"></i>  Settings and Actions </a></li>
     <ul>
-      <li><a href="{% url 'email-student-pref' %}">General Settings</a></li>
+      <li><a href="{% url 'email-Client-pref' %}">General Settings</a></li>
 	  <form id="my_form" action="{% url 'logout' %}" method="POST">
              {% csrf_token %}
             <li><a href="javascript:{}" onclick="document.getElementById('my_form').submit();">Logout</a></li>
