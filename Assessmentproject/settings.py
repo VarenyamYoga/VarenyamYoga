@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-import pymongo
+
 import os
 from pathlib import Path
 from django.contrib import messages
@@ -27,7 +27,7 @@ MEDIA_DIR = os.path.join(BASE_DIR,'media')
 SECRET_KEY = '*b!!yzggw6h58&ov0ah@jk1z!i7chzg!zqh*r)af+3q%cgk*h@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','LocalHost','varenyam.pythonanywhere.com']
 
@@ -140,9 +140,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'/static')
+    os.path.join(BASE_DIR, "Static"),
+   
 ]
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiiles')
+
 
 MESSAGE_TAGS = {
     messages.ERROR : 'danger',

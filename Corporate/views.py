@@ -1,4 +1,4 @@
-import Corporate
+
 from django.shortcuts import render,redirect
 from django.views import View
 from Corporate.forms import CorporateForm,CorporateInfoForm
@@ -86,10 +86,10 @@ class LoginView(View):
             
 
 		messages.error(request,'Please fill all fields')
-		return render(request,'faculty/login.html')
+		return render(request,'Corporate/login.html')
 
 class LogoutView(View):
 	def post(self,request):
 		auth.logout(request)
 		messages.success(request,'Logged Out')
-		return redirect('faculty-login')
+		return redirect('Corporate-login')
