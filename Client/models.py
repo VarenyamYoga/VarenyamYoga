@@ -15,10 +15,10 @@ class ClientInfo(models.Model):
     Company = models.CharField(max_length=50, blank=True)
     Designation = models.CharField(max_length=50, blank=True)
     picture = models.ImageField(upload_to = 'Client_profile_pics', blank=True)
-
+    '''
     def __str__(self):
-        return self.user.username
-    
+        return self.user.username   
+    '''
     class Meta:
         verbose_name_plural = 'Client Info'
 

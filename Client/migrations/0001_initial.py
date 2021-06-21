@@ -18,11 +18,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Client_Question',
             fields=[
-                ('question_db_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='questions.Question_DB')),
+                ('question_DB_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='questions.Question_DB')),
                 ('choice', models.CharField(default='E', max_length=3)),
                 ('Client', models.ForeignKey(limit_choices_to={'groups__name': 'Client'}, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
-            bases=('questions.question_db',),
+            bases=('questions.question_DB',),
         ),
         migrations.CreateModel(
             name='ClientExam_DB',

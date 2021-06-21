@@ -225,10 +225,10 @@ def appear_Assessment(request,id):
          
         qPaperQuestionsList = AssessmentMain.question_paper.questions.all()
         for ques in qPaperQuestionsList:
-            Client_question = Client_question(Client=Client,question=ques.question, optionA=ques.optionA, optionB=ques.optionB,optionC=ques.optionC, optionD=ques.optionD,
+            Client_Question = Client_Question(Client=Client,question=ques.question, optionA=ques.optionA, optionB=ques.optionB,optionC=ques.optionC, optionD=ques.optionD,
             answer=ques.answer)
-            Client_question.save()
-            ClientAssessment.questions.add(Client_question)
+            Client_Question.save()
+            ClientAssessment.questions.add(Client_Question)
             ClientAssessment.save()
 
         ClientAssessment.completed = 1

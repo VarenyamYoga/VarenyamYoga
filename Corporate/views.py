@@ -1,5 +1,6 @@
 
 from django.shortcuts import render,redirect
+from django.utils.http import urlsafe_base64_decode
 from django.views import View
 from Corporate.forms import CorporateForm,CorporateInfoForm
 from .models import CorporateInfo
@@ -13,6 +14,11 @@ from Client.views import EmailThread
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
 from questions.views import has_group
+from Client.utils import account_activation_token
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode 
+from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
+from django.urls import reverse
+
 
 @login_required(login_url='Corporate-login')
 def index(request):
@@ -34,12 +40,18 @@ class Register(View):
             Corporate.set_password(Corporate.password)
             Corporate.is_active = True
             Corporate.is_staff = True
+            my_group = Group.objects.get_or_create(name='Corporate')
+            my_group[0].user_set.add(Corporate)
+            
             Corporate.save()
-
+            uidb64 = urlsafe_base64_decode(force_bytes(Corporate.pk))
             domain = get_current_site(request).domain
+            link = reverse('activate',kwargs={'uidb64':uidb64,'token':account_activation_token.make_token(Corporate)})
+            activate_url = 'http://' + domain +link
             email_subject = 'Activate your Varenyam Virtual Assessment Corporate account'
-            email_body = "Hi. Please contact the admin team of "+domain+". To register yourself as a Trainer."+ ".\n\n You are receiving this message because you registered on " + domain +". If you didn't register please contact support team on " + domain 
-            fromEmail = 'noreply@exam.com'
+            email_body = "Hi. Please contact the admin team of "+domain+". To register yourself as a Trainer."+ activate_url+".\n\n You are receiving this message because you registered on " + domain +". If you didn't register please contact support team on " + domain 
+            
+            fromEmail = 'varenyamanalytics@gmail.com'
             email = EmailMessage(
 				email_subject,
 				email_body,
@@ -93,3 +105,31 @@ class LogoutView(View):
 		auth.logout(request)
 		messages.success(request,'Logged Out')
 		return redirect('Corporate-login')
+
+
+class EmailThread(threading.Thread):
+	def __init__(self,email):
+		self.email = email
+		threading.Thread.__init__(self)
+
+	
+	def run(self):
+		self.email.send(fail_silently = False)
+
+class VerificationView(View):
+	def get(self,request,uidb64,token):
+		try:
+			id = force_text(urlsafe_base64_decode(uidb64))
+			user = User.objects.get(pk=id)
+			if not account_activation_token.check_token(user,token):
+				messages.error(request,"User already Activated. Please Proceed With Login")
+				return redirect("Corporate-login")
+			if user.is_active:
+				return redirect('Corporate-login')
+			user.is_active = True
+			user.save()
+			messages.success(request,'Account activated Sucessfully')
+			return redirect('login')
+		except Exception as e:
+			raise e
+		return redirect('Corporate-login')   

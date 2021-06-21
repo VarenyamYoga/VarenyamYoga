@@ -143,7 +143,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "Static"),
    
 ]
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiiles')
+#STATIC_ROOT = os.path.join(BASE_DIR,'staticfiiles')
+STATIC_ROOT = "/home/varenyam/VarenyamYoga/static/"
+
 
 
 MESSAGE_TAGS = {

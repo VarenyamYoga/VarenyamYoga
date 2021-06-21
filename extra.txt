@@ -20,3 +20,8 @@ pipenv install
 
 git push heroku HEAD:master
 heroku git:remote -a mydomainname
+
+
+https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/
+
+https://www.google.com/search?client=firefox-b-d&q=how+to+fix+static+files+in+pythin+anywhere
